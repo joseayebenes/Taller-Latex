@@ -6,8 +6,11 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{graphicx}
-\author{José Antonio Yébenes - IEEE sb Málaga}
+\usepackage{color}
+\usepackage{listings}
+\author{IEEE sb Málaga}
 \title{Taller de \LaTeX \ para TFG}
+
 \begin{document}
 	
 	\maketitle
@@ -18,8 +21,96 @@
 	
 	\subsection{¿Qué es \LaTeX?}
 	
+	\LaTeX es un sistema de composición de textos, orientado a la creación de documentos escritos que presenten una alta calidad tipográfica. Por sus características y posibilidades, es usado de forma especialmente intensa en la generación de artículos y libros científicos que incluyen, entre otros elementos, expresiones matemáticas.
 	
+	\LaTeX es software libre bajo licencia LPLL.
+	
+	
+	\subsection{Instalación}
+	
+	\subsubsection{Windows}
+	MikTex y TexStudio
+	\subsubsection{Linux}
+	http://nokyotsu.com/latex/linux.html
+	\subsubsection{Macintosh}
+	http://nokyotsu.com/latex/osx.html
+	
+	\section{Creación de un documento}
+	
+	\subsection{Flujo de Trabajo}
+	Para la elaboración del documento requiere normalmente de dos etapas: en la primera hay que crear mediante cualquier editor de texto, en nuestro caso TexStudio, un archivo o fichero fuente que, con las órdenes y comandos adecuados, contenga el texto que queramos imprimir. La segunda etapa consiste en procesar este archivo; el procesador de textos, MikTex en este curso, interpreta las órdenes escritas en él y compila el documento, dejándolo preparado para que pueda ser enviado a la salida correspondiente, ya sea la pantalla o la impresora.
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.7\linewidth]{imagenes/LaTeX_Workflow}
+		\caption{Flujo de trabajo en \LaTeX}
+		\label{fig:LaTeX_Workflow}
+	\end{figure}
+	
+	\subsection{Estructura de un documento}
+	
+	La estructura de un documento \LaTeX se divide en dos grandes partes: el preámbulo y el cuerpo del texto. El siguiente ejemplo muestra un documento mínimo apropiado para el español:
+	
+	\begin{verbatim}
+	
+	\usepackage[spanish]{babel}   % Normas tipográficas y opciones del español
+	\usepackage[T1]{fontenc}      % Codificación de salida
+	\usepackage[latin1]{inputenc} % Codificación de entrada
+	\usepackage{amsmath}
+	\usepackage{amsfonts}
+	\usepackage{amssymb}
+	\usepackage{graphicx}
 
+	\begin{document}
+	Aquí está el texto con lo que queramos señalar.
+	\end{document}
+	\end{verbatim}
+
+	En el \emph{preámbulo} se escriben las instrucciones fundamentales que indican a \LaTeX qué clase de documento se va a escribir y qué características va a tener éste, así como también las que indican a \LaTeX qué paquetes se deben cargar. El preámbulo siempre empezará con la instrucción:
+	\begin{verbatim}
+	\documentclass[<opciones>]{<plantilla_documento>}
+	\end{verbatim}
+	Para definir la plantilla que se va a emplear en el documento, como por ejemplo \emph{article} o \emph{report}, que determinan diferentes estilos. En general, los argumentos que toma este comando son las llamadas \emph{clases} de documento.
+	
+	\subsection{Paquetes}
+	Se llama paquete a una extensión del sistema básico que añade nuevas funciones. Hay, literalmente, cientos de paquetes con muy diversas adiciones: inserción de imágenes, paquetes gráficos, internacionalización, color, música, ajedrez, etc. Todos estos paquetes deberán ser declarados con:
+	\begin{verbatim}
+	\usepackage[<opciones>]{<paquete>}
+	\end{verbatim}
+	
+	\subsection{Cuerpo}
+	El cuerpo del documento consiste en prácticamente todo lo que aparecerá en nuestra compilación. Es aquí, pues, donde escribiremos el texto verdadero. 
+	\begin{verbatim}
+	\begin{document}
+		Texto del documento.
+	\end{document}
+	\end{verbatim}
+	
+	Todo lo que se escriba posterior al \emph{end} será ignorado.
+	
+	\section{Principios básicos de la escritura}
+	Todo bloque de texto separado del resto con lineas en blanco se considera un párrafo. No es el único caso en que LaTex considera que hay un párrafo, pero sí es el más importante. En este caso, se lee el texto contenido en ese bloque y LaTex lo procesa con objeto de encontrar las mejores divisiones de línea, los mejores guiones y el mejor espaciado posible para el párrafo. También se preocupa de encontrar el mejor punto para cambiar de página, así como de cuadrar el resultado en la página. Todo ello, naturalmente, sin necesidad de intervención directa de quien escribe.
+	
+	El texto de cada párrafo se escribe de modo normal, con algunas salvedades importantes. En primer lugar, un espacio entre palabras vale lo mismo que dos, tres o cientos, siempre que no se deje una línea en blanco.
+	
+	 En segundo lugar, LaTeX proporciona un buen número de caracteres adicionales a menudo inexistentes en los teclados y que se pueden introducir como órdenes; por ejemplo, \verb|\textdagger| inserta una cruz (\textdagger) en el punto donde aparece.
+	 
+	 \subsection{Ordenes o macros}
+	 
+	 Hemos visto que todas las órdenes empiezan con \verb|\| y que los datos van entre llaves (o, en ocasiones, entre corchetes).
+	 
+	 
+	 \section{Matemáticas en \LaTeX}
+	 
+	 \section{Incluir imágenes en \LaTeX}
+	 
+	 \section{Crear gráficos en \LaTeX con Tikz}
+	 
+	 \section{La plantilla de TFG de la ETSIT}
+	 
+	 \subsection{Qué la compone}
+	 
+	 \subsection{Como usarla}
 	
 	
 \end{document}
